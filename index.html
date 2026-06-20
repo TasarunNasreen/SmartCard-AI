@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SmartCard AI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">SmartCard AI</p>
+        <h1>Digital card, money tracker, and fast AI guidance.</h1>
+      </div>
+      <nav aria-label="Primary navigation">
+        <a href="#card">Card</a>
+        <a href="#money">Money</a>
+        <a href="#assistant">AI</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Overview">
+        <div class="hero-copy">
+          <h2>Your shareable profile and financial progress in one place.</h2>
+          <p>
+            Generate a QR business card, store your important details, track income,
+            expenses, savings goals, and ask a small retrieval-based assistant for
+            quick money and profile insights.
+          </p>
+        </div>
+        <div class="device-preview" aria-hidden="true">
+          <div class="preview-card">
+            <span id="previewName">Your Name</span>
+            <small id="previewRole">Role or business</small>
+            <div class="preview-bars">
+              <i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="card" class="section-band">
+        <div class="section-title">
+          <p class="eyebrow">Digital business card</p>
+          <h2>Build your contact QR</h2>
+        </div>
+
+        <div class="two-column">
+          <form id="profileForm" class="panel" autocomplete="on">
+            <label>
+              Full name
+              <input id="name" name="name" value="Alex Kumar" />
+            </label>
+            <label>
+              Role / business
+              <input id="role" name="role" value="Student Founder" />
+            </label>
+            <label>
+              Phone
+              <input id="phone" name="phone" value="+91 98765 43210" />
+            </label>
+            <label>
+              Email
+              <input id="email" name="email" value="alex@example.com" />
+            </label>
+            <label>
+              Website or portfolio
+              <input id="website" name="website" value="https://example.com" />
+            </label>
+            <label>
+              Location
+              <input id="location" name="location" value="Bhubaneswar, India" />
+            </label>
+            <label>
+              Short bio
+              <textarea id="bio" name="bio">I build useful AI tools and smart finance workflows.</textarea>
+            </label>
+            <div class="button-row">
+              <button type="submit" class="primary">Update QR</button>
+              <button type="button" id="downloadVcard">Download vCard</button>
+            </div>
+          </form>
+
+          <article class="business-card" aria-label="Generated business card">
+            <div>
+              <p class="eyebrow">Scan to connect</p>
+              <h3 id="cardName">Alex Kumar</h3>
+              <p id="cardRole">Student Founder</p>
+              <p id="cardBio">I build useful AI tools and smart finance workflows.</p>
+            </div>
+            <div class="qr-wrap">
+              <img id="qrImage" alt="QR code for contact card" />
+            </div>
+            <dl class="card-details">
+              <div><dt>Phone</dt><dd id="cardPhone"></dd></div>
+              <div><dt>Email</dt><dd id="cardEmail"></dd></div>
+              <div><dt>Web</dt><dd id="cardWebsite"></dd></div>
+              <div><dt>Place</dt><dd id="cardLocation"></dd></div>
+            </dl>
+          </article>
+        </div>
+      </section>
+
+      <section id="money" class="section-band alt">
+        <div class="section-title">
+          <p class="eyebrow">Money manager</p>
+          <h2>Track progress</h2>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat"><span>Income</span><strong id="incomeStat">Rs 0</strong></article>
+          <article class="stat"><span>Expenses</span><strong id="expenseStat">Rs 0</strong></article>
+          <article class="stat"><span>Savings</span><strong id="savingStat">Rs 0</strong></article>
+          <article class="stat"><span>Goal progress</span><strong id="goalStat">0%</strong></article>
+        </div>
+
+        <div class="two-column">
+          <form id="transactionForm" class="panel">
+            <label>
+              Description
+              <input id="txDescription" value="Freelance project" />
+            </label>
+            <label>
+              Amount
+              <input id="txAmount" type="number" min="1" value="5000" />
+            </label>
+            <label>
+              Type
+              <select id="txType">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+              </select>
+            </label>
+            <label>
+              Category
+              <input id="txCategory" value="Work" />
+            </label>
+            <label>
+              Monthly savings goal
+              <input id="goalAmount" type="number" min="1" value="15000" />
+            </label>
+            <button type="submit" class="primary">Add transaction</button>
+          </form>
+
+          <div class="panel chart-panel">
+            <canvas id="moneyChart" width="720" height="360" aria-label="Income and expense chart"></canvas>
+            <div class="progress-shell" aria-label="Savings goal progress">
+              <span id="progressBar"></span>
+            </div>
+            <ol id="transactionList" class="transaction-list"></ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="assistant" class="section-band">
+        <div class="section-title">
+          <p class="eyebrow">Fast accurate assistant</p>
+          <h2>Local RAG demo</h2>
+        </div>
+
+        <div class="assistant-layout">
+          <div class="panel">
+            <label>
+              Ask about your card or money
+              <textarea id="aiQuestion">How can I improve my savings this month?</textarea>
+            </label>
+            <button id="askAi" class="primary">Ask assistant</button>
+          </div>
+          <article class="answer-panel">
+            <h3>Answer</h3>
+            <p id="aiAnswer">Ask a question to get a grounded answer from your saved profile and money data.</p>
+            <h4>Retrieved context</h4>
+            <ul id="aiSources"></ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built as a starter prototype. Replace sample details with your own before sharing.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

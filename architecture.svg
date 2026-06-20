@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">SmartCard AI architecture</title>
+  <desc id="desc">Architecture diagram for a fast and accurate digital card, money manager, and RAG assistant system.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f8faf7}.box{fill:#fff;stroke:#d9e2df;stroke-width:3;rx:16}.dark{fill:#172124}.green{fill:#1f7a5c}.teal{fill:#1f6f7a}.coral{fill:#c95f4d}.gold{fill:#b88419}.text{font:700 34px Arial, sans-serif;fill:#172124}.small{font:500 24px Arial, sans-serif;fill:#607175}.white{fill:#fff}.line{stroke:#607175;stroke-width:4;fill:none;marker-end:url(#arrow)}
+    </style>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
+      <path d="M0,0 L14,7 L0,14 z" fill="#607175"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1600" height="1000"/>
+  <text x="70" y="80" class="text" style="font-size:48px">SmartCard AI: Fast and Accurate Gen AI Architecture</text>
+  <text x="70" y="124" class="small">Digital business card + QR, money progress tracking, RAG assistant, caching, monitoring, scalable APIs</text>
+
+  <rect x="70" y="190" width="310" height="180" class="box"/>
+  <circle cx="125" cy="250" r="30" class="green"/>
+  <text x="170" y="246" class="text">Client Apps</text>
+  <text x="170" y="284" class="small">Web, mobile, QR scan</text>
+  <text x="95" y="335" class="small">Profile, card, money UI</text>
+
+  <rect x="500" y="170" width="330" height="220" class="box"/>
+  <circle cx="555" cy="235" r="30" class="teal"/>
+  <text x="600" y="232" class="text">API Gateway</text>
+  <text x="600" y="270" class="small">Auth, rate limits, routing</text>
+  <text x="530" y="330" class="small">REST/GraphQL endpoints</text>
+  <text x="530" y="362" class="small">Request validation</text>
+
+  <rect x="950" y="130" width="560" height="320" class="box"/>
+  <text x="990" y="190" class="text">AI Orchestration Layer</text>
+  <text x="990" y="235" class="small">Intent detection, prompt templates, tool calls</text>
+  <text x="990" y="272" class="small">Retrieval, re-ranking, citation assembly</text>
+  <rect x="990" y="315" width="220" height="80" class="green"/>
+  <text x="1024" y="365" class="small white">Gemini Flash</text>
+  <rect x="1240" y="315" width="220" height="80" class="teal"/>
+  <text x="1268" y="365" class="small white">Fallback LLM</text>
+
+  <rect x="70" y="545" width="310" height="210" class="box"/>
+  <circle cx="125" cy="610" r="30" class="gold"/>
+  <text x="170" y="606" class="text">Core Data</text>
+  <text x="95" y="666" class="small">User profile and vCard</text>
+  <text x="95" y="700" class="small">Transactions and goals</text>
+  <text x="95" y="734" class="small">Audit-safe records</text>
+
+  <rect x="500" y="525" width="330" height="250" class="box"/>
+  <circle cx="555" cy="590" r="30" class="coral"/>
+  <text x="600" y="586" class="text">Retrieval</text>
+  <text x="530" y="646" class="small">Embeddings + vector DB</text>
+  <text x="530" y="680" class="small">Hybrid keyword search</text>
+  <text x="530" y="714" class="small">Cross-encoder re-ranker</text>
+
+  <rect x="950" y="545" width="260" height="210" class="box"/>
+  <circle cx="1005" cy="610" r="30" class="green"/>
+  <text x="1050" y="606" class="text">Cache</text>
+  <text x="980" y="666" class="small">Redis query cache</text>
+  <text x="980" y="700" class="small">Profile/card cache</text>
+  <text x="980" y="734" class="small">LLM response cache</text>
+
+  <rect x="1250" y="545" width="260" height="210" class="box"/>
+  <circle cx="1305" cy="610" r="30" class="teal"/>
+  <text x="1350" y="606" class="text">Eval</text>
+  <text x="1280" y="666" class="small">Latency tracing</text>
+  <text x="1280" y="700" class="small">Groundedness tests</text>
+  <text x="1280" y="734" class="small">Feedback loop</text>
+
+  <path class="line" d="M380 280 H500"/>
+  <path class="line" d="M830 280 H950"/>
+  <path class="line" d="M665 390 V525"/>
+  <path class="line" d="M380 650 H500"/>
+  <path class="line" d="M830 650 H950"/>
+  <path class="line" d="M1210 650 H1250"/>
+  <path class="line" d="M1115 545 V450"/>
+  <path class="line" d="M1380 545 V450"/>
+
+  <rect x="70" y="845" width="1440" height="105" class="dark"/>
+  <text x="100" y="890" class="small white">Fast path: cache hit or deterministic finance calculation.</text>
+  <text x="100" y="925" class="small white">Accurate path: retrieve trusted user data, re-rank, generate with citations, then monitor quality.</text>
+</svg>
