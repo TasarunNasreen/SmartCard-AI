@@ -1,4 +1,4 @@
-# SmartCard AI Form Answers
+# SmartCard AI Form Answers (simple questions basic )
 
 ## What architecture would you choose and why?
 
